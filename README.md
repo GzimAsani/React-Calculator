@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 
-https://react-calculator-gzim.herokuapp.com/
+
 
 Acalculator app build with react 
 
