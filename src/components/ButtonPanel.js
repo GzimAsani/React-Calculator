@@ -4,33 +4,33 @@ function ButtonPanel() {
   return (
     <div className="">
       <div className="groupA">
-        <Button name="AC" />
-        <Button name="+/-" />
-        <Button name="%" />
-        <Button name="÷" />
+        <Button btnName="AC" />
+        <Button btnName="+/-" />
+        <Button btnName="%" />
+        <Button btnName="÷" />
       </div>
       <div className="groupB">
-        <Button name="7" />
-        <Button name="8" />
-        <Button name="9" />
-        <Button name="X" />
+        <Button btnName="7" />
+        <Button btnName="8" />
+        <Button btnName="9" />
+        <Button btnName="X" />
       </div>
       <div className="groupC">
-        <Button name="4" />
-        <Button name="5" />
-        <Button name="6" />
-        <Button name="-" />
+        <Button btnName="4" />
+        <Button btnName="5" />
+        <Button btnName="6" />
+        <Button btnName="-" />
       </div>
       <div className="groupD">
-        <Button name="1" />
-        <Button name="2" />
-        <Button name="3" />
-        <Button name="+" />
+        <Button btnName="1" />
+        <Button btnName="2" />
+        <Button btnName="3" />
+        <Button btnName="+" />
       </div>
       <div className="groupE">
-        <Button name="0" />
-        <Button name="." />
-        <Button name="=" />
+        <Button btnName="0" />
+        <Button btnName="." />
+        <Button btnName="=" />
       </div>
     </div>
   );
