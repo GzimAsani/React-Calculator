@@ -2,6 +2,7 @@ import operate from './operate';
 
 function calculate(dataObj, btnName) {
   let { total, next, operation } = dataObj;
+<<<<<<< HEAD
   const isNum = (item) => !!item.match(/[0-9]+/);
 
   if (btnName === 'AC') {
@@ -102,3 +103,4 @@ function calculate(dataObj, btnName) {
 }
 
 export default calculate;
+
