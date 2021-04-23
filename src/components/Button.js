@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 
-const Button = ({ btnName, clickHandler }) => {
-  const handleClick = () => clickHandler(btnName);
-  const fetchResult = (btnName) => {
-    switch (btnName) {
+const Button = ({ name, clickHandler }) => {
+  const handleClick = () => clickHandler(name);
+  const fetchResult = (name) => {
+    switch (name) {
       case '0':
         return 'Button zero';
       case '+':
@@ -17,15 +17,15 @@ const Button = ({ btnName, clickHandler }) => {
     }
   };
   return (
-    <button type="button" onClick={handleClick} classbtnName={fetchResult(btnName)}>
-      {btnName}
+    <button type="button" onClick={handleClick} className={fetchResult(name)}>
+      {name}
     </button>
 
   );
 };
 
 Button.propTypes = {
-  btnName: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
   clickHandler: PropTypes.func.isRequired,
 };
 

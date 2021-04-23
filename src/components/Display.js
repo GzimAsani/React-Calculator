@@ -1,19 +1,17 @@
 import PropTypes from 'prop-types';
 
-function Display({ theResult }) {
-  return (
-    <div>
-      {theResult}
-    </div>
-  );
-}
+const Display = ({ value }) => (
+  <div className="component-display">
+    {value}
+  </div>
+);
 
 Display.propTypes = {
-  theResult: PropTypes.string,
+  value: PropTypes.string,
 };
 
 Display.defaultProps = {
-  theResult: '0',
+  value: '0',
 };
 
 export default Display;

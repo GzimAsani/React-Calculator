@@ -1,36 +1,31 @@
-import React from 'react';
 import './App.css';
+import { useState } from 'react';
 import Display from './Display';
 import ButtonPanel from './ButtonPanel';
 import calculate from '../logic/calculate';
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      total: null,
-      next: null,
-      operation: null,
-    };
-  }
+const App = () => {
+  const [total, setTotal] = useState(null);
+  const [next, setNext] = useState(null);
+  const [operation, setOperation] = useState(null);
 
-  handleClick = (btnName) => {
-    // eslint-disable-next-line react/no-access-state-in-setstate
-    this.setState(calculate(this.state, btnName));
-  }
-
-  render() {
-    const defaultDisplay = '0';
-    const { next, total } = this.state;
-
-    const result = next || total || defaultDisplay;
-    return (
-      <div className="App">
-        <Display result={result} />
-        <ButtonPanel clickHandler={this.handleClick} />
-      </div>
-    );
-  }
-}
+  const handleClick = (buttonName) => {
+    const {
+      total: objTotal,
+      next: objNext,
+      operation: objOperation,
+    } = calculate({ total, next, operation }, buttonName);
+    setTotal(objTotal);
+    setNext(objNext);
+    setOperation(objOperation);
+  };
+  return (
+    <div className="App">
+      <h1>Magic Calculator</h1>
+      <Display value={next || total || '0'} />
+      <ButtonPanel clickHandler={handleClick} />
+    </div>
+  );
+};
 
 export default App;
