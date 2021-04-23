@@ -1,78 +1,40 @@
 import operate from './operate';
 
-export default function calculate(data, buttonName) {
-  let { total, next, operation } = data;
-  switch (buttonName) {
-    case '0':
-    case '1':
-    case '2':
-    case '3':
-    case '4':
-    case '5':
-    case '6':
-    case '7':
-    case '8':
-    case '9':
-      if (next) {
-        next += buttonName;
-      } else {
-        next = buttonName;
-      }
-      break;
-    case '+':
-    case '-':
-    case 'x':
-    case '/':
-      if (total && next) {
-        if (!operation) {
-          operation = buttonName;
-        }
-        total = operate(total, next, operation);
-      } else if (next) {
-        total = next;
-      }
-      operation = buttonName;
-      next = null;
-      break;
-    case '=':
-      if (!operation) {
-        break;
-      } else if (total && next) {
-        total = operate(total, next, operation);
-      } else {
-        total = next;
-      }
+const calculate = (data, buttonName) => {
+  const newData = { ...data };
+  let { total, next, operation } = newData;
+
+  if (buttonName === 'AC') {
+    total = '';
+    next = '';
+    operation = null;
+  } else if (buttonName === '÷' || buttonName === '-' || buttonName === '+' || buttonName === 'x') {
+    operation = !next ? buttonName : null;
+  } else if (buttonName === '%') {
+    if (next) {
+      next = (next / 100).toString();
+    } else {
+      total = (total / 100).toString();
+    }
+  } else if (buttonName === '+/-') {
+    if (next) {
+      next = (next * -1).toString();
+    } else if (total) {
+      total = (total * -1).toString();
+    }
+  } else if (buttonName === '=') {
+    if (total && next && operation) {
+      total = operate(total, next, operation);
+      next = '';
       operation = null;
-      next = null;
-      break;
-    case '+/-':
-      if (next) {
-        next = operate(next, '-1', 'x');
-      } else if (total) {
-        total = operate(total, '-1', 'x');
-      }
-      break;
-    case '%':
-      if (next) {
-        next = operate(next, '100', '/');
-      } else if (total) {
-        total = operate(total, '100', '/');
-      }
-      break;
-    case '.':
-      if (!next) {
-        next = '0.';
-      } else if (!next.includes('.')) {
-        next += '.';
-      }
-      break;
-    case 'AC':
-      total = null;
-      next = null;
-      operation = null;
-      break;
-    default:
-      break;
+    }
+  } else if (!operation) {
+    total += buttonName;
+  } else {
+    next += buttonName;
   }
+
   return { total, next, operation };
-}
+};
+
+export default calculate;
