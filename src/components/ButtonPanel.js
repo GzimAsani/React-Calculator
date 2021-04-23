@@ -1,45 +1,43 @@
 import PropTypes from 'prop-types';
 import Button from './Button';
 
-const ButtonPanel = ({ clickHandler }) => {
+export default function ButtonPanel({ clickHandler }) {
   const handleClick = (buttonName) => clickHandler(buttonName);
   return (
-    <div className="component-button-panel">
+    <div className="">
       <div className="group-1">
-        <Button name="AC" clickHandler={handleClick} />
-        <Button name="+/-" clickHandler={handleClick} />
-        <Button name="%" clickHandler={handleClick} />
-        <Button name="/" clickHandler={handleClick} />
+        <Button clickHandler={handleClick} name="AC" />
+        <Button clickHandler={handleClick} name="+/-" />
+        <Button clickHandler={handleClick} name="%" />
+        <Button clickHandler={handleClick} name="÷" />
       </div>
       <div className="group-2">
-        <Button name="7" clickHandler={handleClick} />
-        <Button name="8" clickHandler={handleClick} />
-        <Button name="9" clickHandler={handleClick} />
-        <Button name="x" clickHandler={handleClick} />
+        <Button clickHandler={handleClick} name="7" />
+        <Button clickHandler={handleClick} name="8" />
+        <Button clickHandler={handleClick} name="9" />
+        <Button clickHandler={handleClick} name="X" />
       </div>
       <div className="group-3">
-        <Button name="4" clickHandler={handleClick} />
-        <Button name="5" clickHandler={handleClick} />
-        <Button name="6" clickHandler={handleClick} />
-        <Button name="-" clickHandler={handleClick} />
+        <Button clickHandler={handleClick} name="4" />
+        <Button clickHandler={handleClick} name="5" />
+        <Button clickHandler={handleClick} name="6" />
+        <Button clickHandler={handleClick} name="-" />
       </div>
       <div className="group-4">
-        <Button name="1" clickHandler={handleClick} />
-        <Button name="2" clickHandler={handleClick} />
-        <Button name="3" clickHandler={handleClick} />
-        <Button name="+" clickHandler={handleClick} />
+        <Button clickHandler={handleClick} name="1" />
+        <Button clickHandler={handleClick} name="2" />
+        <Button clickHandler={handleClick} name="3" />
+        <Button clickHandler={handleClick} name="+" />
       </div>
       <div className="group-5">
-        <Button name="0" clickHandler={handleClick} />
-        <Button name="." clickHandler={handleClick} />
-        <Button name="=" clickHandler={handleClick} />
+        <Button clickHandler={handleClick} name="0" />
+        <Button clickHandler={handleClick} name="." />
+        <Button clickHandler={handleClick} name="=" />
       </div>
     </div>
   );
-};
+}
 
 ButtonPanel.propTypes = {
   clickHandler: PropTypes.func.isRequired,
 };
-
-export default ButtonPanel;
