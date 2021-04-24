@@ -2,12 +2,12 @@
 
 
 
-Acalculator app build with react 
+A calculator app build with react 
 
 ![img](./calculator.png)
 
 ## Live server
-<button> <a href="https://react-calculator-gzim.herokuapp.com/"> Live demo!</a> </button>
+<button> <a href="https://happy-swanson-131ce7.netlify.app/"> Live demo!</a> </button>
 
 ## Built With 
 
