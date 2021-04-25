@@ -1,31 +1,23 @@
 import Big from 'big.js';
 
-function operate(numA, numB, operation) {
-  const a = Big(numA);
-  const b = Big(numB);
-
-  let value;
+export default function operate(numberOne, numberTwo, operation) {
+  const a = Big(numberOne);
+  const b = Big(numberTwo);
 
   if (operation === '+') {
-    value = a.plus(b);
+    return a.plus(b).toString();
   }
-
   if (operation === '-') {
-    value = a.minus(b);
+    return a.minus(b).toString();
   }
-
-  if (operation === 'X') {
-    value = a.times(b);
+  if (operation === 'x') {
+    return a.times(b).toString();
   }
-
   if (operation === '÷') {
-    value = a.div(b);
+    return a.div(b).toString();
   }
-
   if (operation === '%') {
-    value = a.mod(b);
+    return a.mod(b).toString();
   }
-  return value.toString();
+  throw Error(`Undefined operation '${operation}' `);
 }
-
-export default operate;
